@@ -1,0 +1,290 @@
+﻿<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Porsche</title>
+    <link rel="stylesheet" href="stylelogin.css">
+    <!-- Fontawesome CDN Link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--ok-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500&display=swap">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/jquery.mCustomScrollbar.min.css">
+    <link rel="stylesheet" href="assets/css/animate.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/media-queries.css">
+
+    <!-- Favicon and touch icons -->
+    <link rel="shortcut icon" href="assets/ico/favicon.svg">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
+
+    <style>
+        #preloder {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 999999;
+            background: #ffffff;
+        }
+
+        .loader {
+            width: 40px;
+            height: 40px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-top: -13px;
+            margin-left: -13px;
+            border-radius: 60px;
+            animation: loader 0.8s linear infinite;
+            -webkit-animation: loader 0.8s linear infinite;
+        }
+
+        @keyframes loader {
+            0% {
+                -webkit-transform: rotate(0deg);
+                transform: rotate(0deg);
+                border: 4px solid #f44336;
+                border-left-color: transparent;
+            }
+
+            50% {
+                -webkit-transform: rotate(180deg);
+                transform: rotate(180deg);
+                border: 4px solid #673ab7;
+                border-left-color: transparent;
+            }
+
+            100% {
+                -webkit-transform: rotate(360deg);
+                transform: rotate(360deg);
+                border: 4px solid #f44336;
+                border-left-color: transparent;
+            }
+        }
+
+        @-webkit-keyframes loader {
+            0% {
+                -webkit-transform: rotate(0deg);
+                border: 4px solid #f44336;
+                border-left-color: transparent;
+            }
+
+            50% {
+                -webkit-transform: rotate(180deg);
+                border: 4px solid #673ab7;
+                border-left-color: transparent;
+            }
+
+            100% {
+                -webkit-transform: rotate(360deg);
+                border: 4px solid #f44336;
+                border-left-color: transparent;
+            }
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Your custom JavaScript code -->
+    <script>
+        $(function ($) {
+            /*------------------
+                Preloader
+            --------------------*/
+            $(window).on('load', function () {
+                $(".loader").fadeOut();
+                $("#preloder").delay(200).fadeOut("slow");
+
+                /*------------------
+                    Car filter
+                --------------------*/
+                $('.filter__controls li').on('click', function () {
+                    $('.filter__controls li').removeClass('active');
+                    $(this).addClass('active');
+                });
+                if ($('.car-filter').length > 0) {
+                    var containerEl = document.querySelector('.car-filter');
+                    var mixer = mixitup(containerEl);
+                }
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div class="overlay"></div>
+    <!--controlPanel-->
+    <!-- Wrapper -->
+    <div class="wrapper">
+
+        <!-- Sidebar -->
+        <nav class="sidebar">
+
+            <!-- close sidebar menu -->
+            <div class="dismiss">
+                <i class="fas fa-arrow-left"></i>
+            </div>
+
+            <div class="logo">
+                <h3><a href="login.html">Bootstrap 4 Template with Sidebar Menu</a></h3>
+            </div>
+
+            <ul class="list-unstyled menu-elements">
+                <li class="active">
+                    <a href="index.html"><i class="fas fa-home"></i> Home</a>
+                </li>
+                <li>
+                    <a href="profile.html" id="profile-link"><i class="fas fa-user-circle"></i> Profile</a>
+                </li>
+                <li>
+                    <a href="login.html"><i class="fas fa-cog"></i> Login-Signup</a>
+                </li>
+                <li>
+                    <a href="about.html"><i class="fas fa-user"></i> About us</a>
+                </li>
+                <li>
+                    <a href="contact.html"><i class="fas fa-envelope"></i> Contact us</a>
+                </li>
+            </ul>
+            <script>
+                document.addEventListener("DOMContentLoaded", function() {
+    const profileLink = document.getElementById('profile-link');
+
+    profileLink.addEventListener('click', function(event) {
+        event.preventDefault(); // Prevent default link behavior
+
+        // Add your token verification logic here
+        // Assume verifyToken function is available
+
+        // Replace 'YOUR_API_ENDPOINT' with the actual endpoint where you check the token
+        fetch('http://localhost:2000/api/token', {
+    method: 'GET'
+})
+.then(tokenResponse => {
+    if (tokenResponse.ok) {
+        return tokenResponse.json();
+    } else {
+        throw new Error('Failed to fetch token');
+    }
+})
+.then(tokenData => {
+    const token = tokenData.token;
+
+    // Use the retrieved token to make the request to the profile endpoint
+    fetch('http://localhost:2000/profile', {
+        method: 'GET',
+        headers: {
+            'Authorization': 'Bearer ' + token
+        }
+    })
+    .then(response => {
+        if (response.ok) {
+            // Token is valid, allow navigation to profile page
+            window.location.href = "profile.html";
+        } else {
+            // Token is not valid, display error message
+            alert('Unauthorized: Invalid token');
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('An error occurred while verifying the token');
+    });
+})
+.catch(error => {
+    console.error('Error:', error);
+    alert('An error occurred while fetching the token');
+});
+    });
+});
+
+            </script>
+            <div class="to-top">
+                <a class="btn btn-primary btn-customized-3" href="#" role="button">
+                    <i class="fas fa-arrow-up"></i> Top
+                </a>
+            </div>
+
+            <div class="dark-light-buttons">
+                <a class="btn btn-primary btn-customized-4 btn-customized-dark" href="#" role="button">Dark</a>
+                <a class="btn btn-primary btn-customized-4 btn-customized-light" href="#" role="button">Light</a>
+            </div>
+
+        </nav>
+
+        <!-- End sidebar -->
+        <!-- Dark overlay -->
+        <div class="overlay"></div>
+
+        <!-- Content -->
+        <div class="content">
+
+            <!-- open sidebar menu -->
+            <a class="btn btn-primary btn-customized open-menu" href="#" role="button">
+                <i class="fas fa-align-left"></i> <span>Menu</span>
+            </a>
+            <!--controlPanel-->
+            <!-- Page Preloder -->
+            <div id="preloder">
+                <div class="loader"></div>
+            </div>
+            <!-- Video background -->
+            <video autoplay muted loop>
+                <source src="img/Login vidf.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+
+            <div class="container">
+
+                <input type="checkbox" id="flip">
+                <div class="cover">
+                    <div class="front">
+                        <img src="img/911.png" alt="">
+                        <div class="text">
+                            <span class="text-1">Rev Up Your Experience:</span>
+                            <span class="text-2"> Login for a Thrilling Ride</span>
+                        </div>
+                    </div>
+                    <div class="back">
+                        <!--<img class="backImg" src="img/911.png" alt="">-->
+                        <div class="text">
+                            <span class="text-1">Complete miles of journey <br> with one step</span>
+                            <span class="text-2">Let's get started</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="forms" id = 'login'>
+
+                   </div>
+    <!-- Search End -->
+    <script src="assets/js/jquery-3.3.1.min.js"></script>
+    <script src="assets/js/jquery-migrate-3.0.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="assets/js/jquery.backstretch.min.js"></script>
+    <script src="assets/js/wow.min.js"></script>
+    <script src="assets/js/jquery.waypoints.min.js"></script>
+    <script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="assets/js/scripts.js"></script>
+
+    <!-- Javascript -->
+    <script src="assets/js/jquery-3.3.1.min.js"></script>
+    <script src="assets/js/jquery-migrate-3.0.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="assets/js/jquery.backstretch.min.js"></script>
+    <script src="assets/js/wow.min.js"></script>
+    <script src="assets/js/jquery.waypoints.min.js"></script>
+    <script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="assets/js/scripts.js"></script>
+
+</body>
+
+</html>

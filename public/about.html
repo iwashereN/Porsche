@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="HVAC Template">
+    <meta name="keywords" content="HVAC, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Porsche</title>
+
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <!--ok-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500&display=swap">
+    <link rel="stylesheet" href="assets/css/jquery.mCustomScrollbar.min.css">
+    <link rel="stylesheet" href="assets/css/animate.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/media-queries.css">
+
+    <!-- Favicon and touch icons -->
+    <link rel="shortcut icon" href="assets/ico/favicon.svg">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
+
+
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="css/elegant-icons.css" type="text/css">
+    <link rel="stylesheet" href="css/nice-select.css" type="text/css">
+    <link rel="stylesheet" href="css/magnific-popup.css" type="text/css">
+    <link rel="stylesheet" href="css/jquery-ui.min.css" type="text/css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+</head>
+
+<body>
+    <!--controlPanel-->
+    <!-- Wrapper -->
+    <div class="wrapper">
+
+        <!-- Sidebar -->
+        <nav class="sidebar">
+
+            <!-- close sidebar menu -->
+            <div class="dismiss">
+                <i class="fas fa-arrow-left"></i>
+            </div>
+
+            <div class="logo">
+                <h3><a href="about.html">Bootstrap 4 Template with Sidebar Menu</a></h3>
+            </div>
+
+            <ul class="list-unstyled menu-elements">
+                <li class="active">
+                    <a href="index.html"><i class="fas fa-home"></i> Home</a>
+                </li>
+                <li>
+                    <a href="profile.html" id="profile-link"><i class="fas fa-user-circle"></i> Profile</a>
+                </li>
+                <li>
+                    <a href="login.html"><i class="fas fa-cog"></i> Login-Signup</a>
+                </li>
+                <li>
+                    <a href="about.html"><i class="fas fa-user"></i> About us</a>
+                </li>
+                <li>
+                    <a href="contact.html"><i class="fas fa-envelope"></i> Contact us</a>
+                </li>
+            </ul>
+            <script>
+                document.addEventListener("DOMContentLoaded", function() {
+    const profileLink = document.getElementById('profile-link');
+
+    profileLink.addEventListener('click', function(event) {
+        event.preventDefault(); // Prevent default link behavior
+
+        // Add your token verification logic here
+        // Assume verifyToken function is available
+
+        // Replace 'YOUR_API_ENDPOINT' with the actual endpoint where you check the token
+        fetch('http://localhost:2000/api/token', {
+    method: 'GET'
+})
+.then(tokenResponse => {
+    if (tokenResponse.ok) {
+        return tokenResponse.json();
+    } else {
+        throw new Error('Failed to fetch token');
+    }
+})
+.then(tokenData => {
+    const token = tokenData.token;
+
+    // Use the retrieved token to make the request to the profile endpoint
+    fetch('http://localhost:2000/profile', {
+        method: 'GET',
+        headers: {
+            'Authorization': 'Bearer ' + token
+        }
+    })
+    .then(response => {
+        if (response.ok) {
+            // Token is valid, allow navigation to profile page
+            window.location.href = "profile.html";
+        } else {
+            // Token is not valid, display error message
+            alert('Unauthorized: Invalid token');
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('An error occurred while verifying the token');
+    });
+})
+.catch(error => {
+    console.error('Error:', error);
+    alert('An error occurred while fetching the token');
+});
+    });
+});
+
+            </script>
+            <div class="to-top">
+                <a class="btn btn-primary btn-customized-3" href="#" role="button">
+                    <i class="fas fa-arrow-up"></i> Top
+                </a>
+            </div>
+
+            <div class="dark-light-buttons">
+                <a class="btn btn-primary btn-customized-4 btn-customized-dark" href="#" role="button">Dark</a>
+                <a class="btn btn-primary btn-customized-4 btn-customized-light" href="#" role="button">Light</a>
+            </div>
+
+        </nav>
+
+
+        <!-- End sidebar -->
+        <!-- Dark overlay -->
+        <div class="overlay"></div>
+
+        <!-- Content -->
+        <div class="content">
+
+            <!-- open sidebar menu -->
+            <a class="btn btn-primary btn-customized open-menu" href="#" role="button">
+                <i class="fas fa-align-left"></i> <span>Menu</span>
+            </a>
+            <!--controlPanel-->
+            <!-- Page Preloder -->
+            <div id="preloder">
+                <div class="loader"></div>
+            </div>
+
+            <!-- Offcanvas Menu Begin -->
+            
+            <!-- Header Section End -->
+            <!-- Breadcrumb End -->
+            <div class="breadcrumb-option set-bg" data-setbg="img/breadcrumb-bg.jpg">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12 text-center">
+                            <div class="breadcrumb__text">
+                                <h2>About Us</h2>
+                                <div class="breadcrumb__links">
+                                    <a href="./index.html"><i class="fa fa-home"></i> Home</a>
+                                    <span>About Us</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Breadcrumb Begin -->
+            <!-- About Us Section Begin -->
+            <section class="about spad">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="section-title about-title">
+                                <h2>Welcome To PORSCHE Online <br />Where You Will Find Your Dream Car</h2>
+                                <p>
+                                    Porsche, the epitome of automotive allure and a beacon of driving delight,
+                                    has been leaving tire tracks of excellence since its inception in 1931.
+                                    <br /> Founded by the visionary Ferdinand Porsche, this brand has been crafting vehicles
+                                    that not only defy the laws of physics but redefine them entirely.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about__feature">
+                        <div class="row">
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                <div class="about_feature_item">
+                                    <img src="img/about/af-1.png" alt="">
+                                    <h5>Quality Assurance System</h5>
+
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                <div class="about_feature_item">
+                                    <img src="img/about/af-2.png" alt="">
+                                    <h5>Accurate Testing Processes</h5>
+
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                <div class="about_feature_item">
+                                    <img src="img/about/af-3.png" alt="">
+                                    <h5>Infrastructure Integration Technology</h5>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="about__pic">
+                                <img src="https://images-porsche.imgix.net/-/media/F192FD5D5EA340A192F193BB737B362D_D048DF71EC4C42839D0C20E5591AD8F6_13-5_Fahrzeugsammlung_001-Hero_Fahrzeugsammlung?w=999&q=85&auto=format" alt="">
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                            <div class="about__item">
+                                <h5>Our Mission</h5>
+                                <p>
+                                    At Porsche, we're on a mission to ignite your imagination and fuel your passion for driving.
+                                    Our mantra, "The only limit is your imagination," is more than just a slogan – it's the driving
+                                    force behind everything we do. From the iconic 911 to the revolutionary Taycan, each Porsche is
+                                    crafted with precision and purpose,
+                                    designed to inspire you to push the boundaries of what's possible. Our mission isn't just about
+                                    building cars; it's about empowering you to dream bigger, drive farther, and experience the thrill
+                                    of the open road like never before. So, whether you're carving corners on the track or cruising down the highway,
+                                    remember: with Porsche, your imagination is the only limit.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                            <div class="about__item">
+                                <h5>Our Vision</h5>
+                                <p>
+                                    At Porsche, our vision is not just about building cars;
+                                    it's about crafting dreams and forging connections that
+                                    transcend generations.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- About Us Section End -->
+            <!-- Call Section Begin -->
+            <section class="call spad set-bg" data-setbg="img/about/call-bg.jpg">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-5 col-md-6">
+                            <div class="call__text">
+                                <div class="section-title">
+                                    <h2>Request A Call Back</h2>
+                                    <!--<p>Posters had been a very beneficial marketing tool because it had paved to deliver an
+                                    effective message that conveyed customer’s</p>-->
+                                </div>
+                                <a href="#">Contact Us</a>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 offset-lg-1 col-md-6">
+                            <form action="#" class="call__form">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <input type="text" placeholder="Name">
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <input type="text" placeholder="Email">
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <input type="text" placeholder="Phone">
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <select>
+                                            <option value="">Choose Our Services</option>
+                                            <option value="">Buy Cars</option>
+                                            <option value="">Sell Cars</option>
+                                            <option value="">Wash Cars</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <button type="submit" class="site-btn">Submit Now</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Call Section End -->
+            <!-- Team Section Begin -->
+            <section class="team spad">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="section-title team-title">
+                                <span>Our Champions</span>
+                                <h2> Porsche Cup winners 2020-2023 </h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-3 col-sm-6">
+                            <div class="team__item">
+                                <div class="team_item_pic">
+                                    <img src="https://storage.googleapis.com/ecm-prod/assets/1/pilote/3908/nicolas-leutwiler_662a06.png" alt="">
+                                </div>
+                                <div class="team_item_text">
+                                    <h5>Nicolas Niki Leutwiler</h5>
+                                    <span>2023</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-sm-6">
+                            <div class="team__item">
+                                <div class="team_item_pic">
+                                    <img src="https://storage.googleapis.com/ecm-prod/assets/1/pilote/3238/ralf-bohn_b0a557.png" alt="">
+                                </div>
+                                <div class="team_item_text">
+                                    <h5>Ralf Bohn</h5>
+                                    <span>2022</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-sm-6">
+                            <div class="team__item">
+                                <div class="team_item_pic">
+                                    <img src="https://storage.googleapis.com/ecm-prod/assets/1/pilote/3452/jan-heylen_a7366d.png" alt="">
+                                </div>
+                                <div class="team_item_text">
+                                    <h5>Jan Heylen</h5>
+                                    <span>2021</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-sm-6">
+                            <div class="team__item">
+                                <div class="team_item_pic">
+                                    <img src="https://storage.googleapis.com/ecm-prod/media/cache/driver_md/assets/1/pilote/3821/rolf-ineichen_3f6625.png" alt="">
+                                </div>
+                                <div class="team_item_text">
+                                    <h5>Robert Renauer</h5>
+                                    <span>2020</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Team Section End -->
+            <!-- Testimonial Section Begin -->
+            <section class="testimonial spad">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="section-title testimonial-title">
+                                <span>Then and Now</span>
+                                <h2>Founders & Owners</h2>
+                                <!-- <p>Our customers are our biggest supporters. What do they think of us? Lorem</p> -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="testimonial__slider owl-carousel">
+                            <div class="col-lg-6">
+                                <div class="testimonial__item">
+                                    <div class="testimonial_item_author">
+                                        <div class="testimonial_itemauthor_pic">
+                                            <img src="img\about\1935-ferdinand-copyright-porsche.jpg"style="width: 200px; height: auto;" alt="">
+                                        </div>
+                                        <div class="testimonial_itemauthor_text">
+                                            <div class="rating">
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                            </div>
+                                            <h5>Ferdinand Porsche /<span> Founder</span></h5>
+                                        </div>
+                                    </div>
+                                    <p>
+                                        Ferdinand Porsche founded his engineering office in 1931.
+                                        Working until his death in 1951, the exceptionally creative technician,
+                                        formerly a designer of electric cars and racing cars and the chief developer
+                                        at Daimler-Benz, laid the foundations for the global company that would
+                                        later bear the same name.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="testimonial__item">
+                                    <div class="testimonial_item_author">
+                                        <div class="testimonial_itemauthor_pic">
+                                            <img src="img\about\IMG-20240321-WA0015.jpg"style="width: 200px; height: auto;" alt="">
+                                        </div>
+                                        <div class="testimonial_itemauthor_text">
+                                            <div class="rating">
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                            </div>
+                                            <h5>Oliver Blume /<span> Current CEO</span></h5>
+                                        </div>
+                                    </div>
+                                    <p>
+                                        Since 1 October 2015 Blume has served as CEO of Volkswagen subsidiary
+                                        Porsche; the supervisory board of the company appointed him to this position
+                                        on 30 September 2015. He replaced Matthias Müller, who became CEO of VW Group.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="testimonial__item">
+                                    <div class="testimonial_item_author">
+                                        <div class="testimonial_itemauthor_pic">
+                                            <img src="img\about\1935-ferdinand-copyright-porsche.jpg"style="width: 200px; height: auto;" alt="">
+                                        </div>
+                                        <div class="testimonial_itemauthor_text">
+                                            <div class="rating">
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                            </div>
+                                            <h5>Ferdinand Porsche /<span> Founder</span></h5>
+                                        </div>
+                                    </div>
+                                    <p>
+                                        Ferdinand Porsche founded his engineering office in 1931.
+                                        Working until his death in 1951, the exceptionally creative technician,
+                                        formerly a designer of electric cars and racing cars and the chief developer
+                                        at Daimler-Benz, laid the foundations for the global company that would
+                                        later bear the same name.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="testimonial__item">
+                                    <div class="testimonial_item_author">
+                                        <div class="testimonial_itemauthor_pic">
+                                            <img src="img\about\IMG-20240321-WA0015.jpg"style="width: 200px; height: auto;" alt="">
+                                        </div>
+                                        <div class="testimonial_itemauthor_text">
+                                            <div class="rating">
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                            </div>
+                                            <h5>Oliver Blume /<span> Current CEO</span></h5>
+                                        </div>
+                                    </div>
+                                    <p>
+                                        Since 1 October 2015 Blume has served as CEO of Volkswagen subsidiary
+                                        Porsche; the supervisory board of the company appointed him to this position
+                                        on 30 September 2015. He replaced Matthias Müller, who became CEO of VW Group.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Testimonial Section End -->
+            <!-- Counter Begin -->
+            <div class="counter spad set-bg" data-setbg="img/counter-bg.jpg">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-6 col-sm-6">
+                            <div class="counter__item">
+                                <h2 class="counter-num">1922</h2>
+                                <p>Vehicles Stock</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6">
+                            <div class="counter__item">
+                                <h2 class="counter-num">1500</h2>
+                                <strong>+</strong>
+                                <p>Vehicles Sale</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6">
+                            <div class="counter__item">
+                                <h2 class="counter-num">1922</h2>
+                                <p>Dealer Reviews</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6">
+                            <div class="counter__item">
+                                <h2 class="counter-num">5100</h2>
+                                <p>Happy Clients</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Counter End -->
+            <!-- Clients Begin -->
+            <div class="clients spad">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="section-title client-title">
+                                <span>Partner</span>
+                                <h2>Our Clients</h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-3 col-md-4 col-sm-6">
+                            <a href="#" class="client__item">
+                                <img src="img\about\64d1b8863b3f33d8e4b1ae62738b17c9.jpg" alt="">
+                            </a>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6">
+                            <a href="#" class="client__item">
+                                <img src="img\about\IMG-20240321-WA0013.jpg" alt="">
+                            </a>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6">
+                            <a href="#" class="client__item">
+                                <img src="img\about\IMG-20240321-WA0014.jpg" alt="">
+                            </a>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6">
+                            <a href="#" class="client__item">
+                                <img src="img\about\IMG-20240321-WA0016.jpg" alt="">
+                            </a>
+                        </div>
+                        <!-- <div class="col-lg-3 col-md-4 col-sm-6">
+                            <a href="#" class="client__item">
+                                <img src="img/clients/client-4.png" alt="">
+                            </a>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6">
+                            <a href="#" class="client__item">
+                                <img src="img/clients/client-5.png" alt="">
+                            </a>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6">
+                            <a href="#" class="client__item">
+                                <img src="img/clients/client-6.png" alt="">
+                            </a>
+                        </div>
+                        <div class="col-lg-3 col-md-4 col-sm-6">
+                            <a href="#" class="client__item">
+                                <img src="img/clients/client-7.png" alt="">
+                            </a>
+                        </div>-->
+                    </div>
+                </div>
+            </div>
+            <!-- Clients End -->
+            <!-- Footer Section Begin -->
+            <footer class="footer set-bg" data-setbg="img/footer-bg.jpg">
+                <div class="container">
+                    <div class="footer__contact">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6">
+                                <div class="footer_contact_title">
+                                    <h2>Contact Us Now!</h2>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6">
+                                <div class="footer_contact_option">
+                                    <div class="option__item"><i class="fa fa-phone"></i> 1-800-PORSCHE</div>
+                                    <div class="option__item email"><i class="fa fa-envelope-o"></i> accessibility@porsche.us</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-4 col-md-4">
+                            <div class="footer__about">
+                                <div class="footer__logo">
+                                    <a href="#"><img src="https://pngimg.com/uploads/porsche_logo/porsche_logo_PNG6.png" alt=""></a>
+                                </div>
+                                <!-- <p>Any questions? Let us know in store at 625 Gloria Union, California, United Stated or call us
+                                on (+1) 96 123 8888</p>-->
+                                <div class="footer__social">
+                                    <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
+                                    <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+                                    <a href="#" class="google"><i class="fa fa-google"></i></a>
+                                    <!--<a href="#" class="skype"><i class="fa fa-skype"></i></a>-->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-2 offset-lg-1 col-md-3">
+                            <div class="footer__widget">
+                                <h5>Infomation</h5>
+                                <ul>
+                                    <li><a href="#"><i class="fa fa-angle-right"></i> Purchase</a></li>
+                                    <li><a href="#"><i class="fa fa-angle-right"></i> Payemnt</a></li>
+                                    <li><a href="#"><i class="fa fa-angle-right"></i> Shipping</a></li>
+                                    <li><a href="#"><i class="fa fa-angle-right"></i> Return</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-2 col-md-3">
+                            <div class="footer__widget">
+                                <!-- <h5>Infomation</h5>
+                                <ul>
+                                    <li><a href="#"><i class="fa fa-angle-right"></i> Hatchback</a></li>
+                                    <li><a href="#"><i class="fa fa-angle-right"></i> Sedan</a></li>
+                                    <li><a href="#"><i class="fa fa-angle-right"></i> SUV</a></li>
+                                    <li><a href="#"><i class="fa fa-angle-right"></i> Crossover</a></li>
+                                </ul>-->
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <div class="footer__brand">
+                                <h5>Top Models</h5>
+                                <ul>
+                                    <li><a href="#"><i class="fa fa-angle-right"></i> 718</a></li>
+                                    <li><a href="#"><i class="fa fa-angle-right"></i> 911</a></li>
+                                    <li><a href="#"><i class="fa fa-angle-right"></i> Taycan</a></li>
+                                    <li><a href="#"><i class="fa fa-angle-right"></i> Panamera</a></li>
+                                </ul>
+                                <ul>
+                                    <li><a href="#"><i class="fa fa-angle-right"></i> Macan</a></li>
+                                    <li><a href="#"><i class="fa fa-angle-right"></i> Cayenne</a></li>
+                                    <!--<li><a href="#"><i class="fa fa-angle-right"></i> Ferrari</a></li>
+                                    <li><a href="#"><i class="fa fa-angle-right"></i> Honda</a></li>-->
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                    <div class="footer_copyright_text">
+                        <!--    <p>Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a></p>-->
+                    </div>
+                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                </div>
+            </footer>
+            <!-- Footer Section End -->
+            <!-- Search Begin -->
+            <div class="search-model">
+                <div class="h-100 d-flex align-items-center justify-content-center">
+                    <div class="search-close-switch">+</div>
+                    <form class="search-model-form">
+                        <input type="text" id="search-input" placeholder="Search here.....">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Search End -->
+
+    <script src="assets/js/jquery-3.3.1.min.js"></script>
+    <script src="assets/js/jquery-migrate-3.0.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="assets/js/jquery.backstretch.min.js"></script>
+    <script src="assets/js/wow.min.js"></script>
+    <script src="assets/js/jquery.waypoints.min.js"></script>
+    <script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="assets/js/scripts.js"></script>
+
+    <!-- Javascript -->
+    <script src="assets/js/jquery-3.3.1.min.js"></script>
+    <script src="assets/js/jquery-migrate-3.0.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="assets/js/jquery.backstretch.min.js"></script>
+    <script src="assets/js/wow.min.js"></script>
+    <script src="assets/js/jquery.waypoints.min.js"></script>
+    <script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="assets/js/scripts.js"></script>
+
+    <!-- Js Plugins -->
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.nice-select.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="js/mixitup.min.js"></script>
+    <script src="js/jquery.slicknav.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/main.js"></script>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <script src="js/bootstrap.min.js"></script>
+</body>
+
+</html>

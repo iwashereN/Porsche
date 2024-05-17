@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="HVAC Template">
+    <meta name="keywords" content="HVAC, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Porsche</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="css/elegant-icons.css" type="text/css">
+    <link rel="stylesheet" href="css/nice-select.css" type="text/css">
+    <link rel="stylesheet" href="css/magnific-popup.css" type="text/css">
+    <link rel="stylesheet" href="css/jquery-ui.min.css" type="text/css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <!--ok-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500&display=swap">
+    <link rel="stylesheet" href="assets/css/jquery.mCustomScrollbar.min.css">
+    <link rel="stylesheet" href="assets/css/animate.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/media-queries.css">
+
+    <!-- Favicon and touch icons -->
+    <link rel="shortcut icon" href="assets/ico/favicon.svg">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
+
+</head>
+
+<body>
+    <!-- Wrapper -->
+    <div class="wrapper">
+
+        <!-- Sidebar -->
+        <nav class="sidebar" id = 'nav'>
+
+            <!-- close sidebar menu -->
+            <div class="dismiss">
+                <i class="fas fa-arrow-left"></i>
+            </div>
+
+            <div class="logo">
+                <h3><a href="index.html">Bootstrap 4 Template with Sidebar Menu</a></h3>
+            </div>
+
+            <ul class="list-unstyled menu-elements">
+                <li class="active">
+                    <a href="index.html"><i class="fas fa-home"></i> Home</a>
+                </li>
+                <li>
+                    <a href="profile.html" id="profile-link"><i class="fas fa-user-circle"></i> Profile</a>
+                </li>
+                <li>
+                    <a href="login.html"><i class="fas fa-cog"></i> Login-Signup</a>
+                </li>
+                <li>
+                    <a href="about.html"><i class="fas fa-user"></i> About us</a>
+                </li>
+                <li>
+                    <a href="contact.html"><i class="fas fa-envelope"></i> Contact us</a>
+                </li>
+            </ul>
+            <script>
+                document.addEventListener("DOMContentLoaded", function() {
+    const profileLink = document.getElementById('profile-link');
+
+    profileLink.addEventListener('click', function(event) {
+        event.preventDefault(); // Prevent default link behavior
+
+        // Add your token verification logic here
+        // Assume verifyToken function is available
+
+        // Replace 'YOUR_API_ENDPOINT' with the actual endpoint where you check the token
+        fetch('http://localhost:2000/api/token', {
+    method: 'GET'
+})
+.then(tokenResponse => {
+    if (tokenResponse.ok) {
+        return tokenResponse.json();
+    } else {
+        throw new Error('Failed to fetch token');
+    }
+})
+.then(tokenData => {
+    const token = tokenData.token;
+
+    // Use the retrieved token to make the request to the profile endpoint
+    fetch('http://localhost:2000/profile', {
+        method: 'GET',
+        headers: {
+            'Authorization': 'Bearer ' + token
+        }
+    })
+    .then(response => {
+        if (response.ok) {
+            // Token is valid, allow navigation to profile page
+            window.location.href = "profile.html";
+        } else {
+            // Token is not valid, display error message
+            alert('Unauthorized: Invalid token');
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('An error occurred while verifying the token');
+    });
+})
+.catch(error => {
+    console.error('Error:', error);
+    alert('An error occurred while fetching the token');
+});
+    });
+});
+
+            </script>
+            <div class="to-top">
+                <a class="btn btn-primary btn-customized-3" href="#" role="button">
+                    <i class="fas fa-arrow-up"></i> Top
+                </a>
+            </div>
+
+            <div class="dark-light-buttons">
+                <a class="btn btn-primary btn-customized-4 btn-customized-dark" href="#" role="button">Dark</a>
+                <a class="btn btn-primary btn-customized-4 btn-customized-light" href="#" role="button">Light</a>
+            </div>
+
+        </nav>
+    
+
+    <!-- End sidebar -->
+    <!-- Dark overlay -->
+    <div class="overlay"></div>
+
+    <!-- Content -->
+    <div class="content">
+
+        <!-- open sidebar menu -->
+        <a class="btn btn-primary btn-customized open-menu" href="#" role="button">
+            <i class="fas fa-align-left"></i> <span>Menu</span>
+        </a>
+        <!--controlPanel-->
+        <!-- Page Preloder -->
+        <div id="preloder">
+            <div class="loader"></div>
+        </div>
+    <!-- Breadcrumb End -->
+    <div class="breadcrumb-option set-bg" data-setbg="img/HD-wallpaper-porsche-911-gt2-porsche-landscape-mountains-car-red.jpg" style="background-color: #293b44; height: 550px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    
+                    <div class="breadcrumb__text">
+                        <h2 style="color: #293b44; font-family: Georgia, sans-serif; font-size: 50px; margin-top: -20px;">Car Listing</h2>
+
+                        <div class="breadcrumb__links">
+                            <a href="./index.html" style="color: #293b44; font-family: Georgia, sans-serif; font-size: 20px; "><i class="fa fa-home"></i> Home</a>
+                            <span style="color: #293b44; font-family: Georgia, sans-serif; font-size: 20px;">About</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Breadcrumb Begin -->
+    <!-- Car Section Begin -->
+    <section class="car spad" style="background-color: white;">
+        <div class="container">
+            <div class="row" >
+                <div class="col-lg-12" >
+                    <div class="section-title">   
+                        <h2 style="color: #293b44; font-family: 'Georgia', sans-serif; font-size: 50px;">CHOOSE YOUR DREAM CAR</h2>
+                    </div>
+                    <ul class="filter__controls">
+                        <li class="active" data-filter="*" style= "color: #213c49; font-family: Georgia, sans-serif; font-size: 17px;">Most Researched</li>
+                        <li data-filter=".sale" style="color: #213c49; font-family: Georgia, sans-serif; font-size: 17px;"> Latest on sale</li>
+                    </ul>
+                </div>
+            </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3  ">
+                    <div class="car__sidebar" style="background-color: #ccd9e0; margin-left: -70px;margin-right:70px ;">
+                        <div class="car__search" >
+                            <h5  style="color:#293b44"> Car Search </h5>
+                            <form action="#">
+                                <input type="text" placeholder="Search...">
+                                <button type="submit"><i class="fa fa-search"></i></button>
+                            </form>
+                        </div>
+                        <div class="car__filter" >
+                            <h5 style="color: #293b44"> Car Filter</h5>
+                            <form action="#">
+                                <select style="color: #153448;">
+                                    <option data-display="Model" style="color: #293b44">Select Model</option>
+                                    <option value="">718</option>
+                                    <option value="">911 Carrera & Tagra </option>
+                                    <option value="">911 Turbo</option>
+                                </select>
+                                <!-- <select>
+                                    <option value="">Body Style</option>
+                                    <option value="">Option 1</option>
+                                    <option value="">Option 2</option>
+                                </select> -->
+                                <select style="color: #EAD196">
+                                    <option value="">Transmisson</option>
+                                    <option value="">Bluetooth</option>
+                                    <option value="">WiFi</option>
+                                </select>
+                                <select style="color: #EAD196">
+                                    <option value="">Engine</option>
+                                    <option value="">997</option>
+                                    <option value="">991</option>
+                                    <option value="">986</option>
+                                    <option value="">964</option>
+                                </select>
+                                <select style="color: #EAD196">
+                                    <option value="">Colors</option>
+                                    <option value="">Red</option>
+                                    <option value="">Blue</option>
+                                    <option value="">Black</option>
+                                    <option value="">Yellow</option>
+                                </select>
+                                <div class="filter-price" style="color: #070606;">
+                                    <p>Price:</p>
+                                    <div class="price-range-wrap"  style="color: #070606;">
+                                        <div class="filter-price-range"  style="color: #070606;"></div>
+                                        <div class="range-slider"  style="color: #070606;">
+                                            <div class="price-input">
+                                                <input type="text" id="filterAmount">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="car_filter_btn">
+                                    <button type="submit" class="site-btn">Reset Filter</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>     
+                <div class="col-lg-9" style="margin-left:-50px ;margin-right: 50px; margin-top: -100px;">
+                    <section class="car spad">
+                        <div class="container">
+                            <div class="row car-filter">
+                                <div class="col-lg-3 col-md-4 col-sm-6 mix">
+                                    <div class="car__item">
+                                        <div class="car__item__pic__slider owl-carousel ">
+                                            <img src="https://www.autocar.co.uk/sites/autocar.co.uk/files/images/car-reviews/first-drives/legacy/porsche-cayenne-s.jpg" alt="">
+                                            <img src="https://i.pinimg.com/564x/37/16/9e/37169e46af38a5bfda73d08f5b2cf0e1.jpg" alt="">
+                                            <img src="https://www.autocar.co.uk/sites/autocar.co.uk/files/images/car-reviews/first-drives/legacy/porsche-cayenne-s.jpg" alt="">
+                                            <img src="https://i.pinimg.com/564x/37/16/9e/37169e46af38a5bfda73d08f5b2cf0e1.jpg" alt="">
+                                        </div>
+                                        <div class="car__item__text">
+                                            <div class="car__item__text__inner">
+                                                <div class="label-date">2016</div>
+                                                <h5><a href="#">Porsche cayenne</a></h5>
+                                            </div>
+                                            <div class="car__item__price">
+                                                <span style="margin-top: -20px;" class="car-option sale">For Sale</span>
+                                                <span style="font-size: 12px;margin-left: 105px;">$322<span>/Month</span></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-4 col-sm-6 mix sale">
+                                    <div class="car__item">
+                                        <div class="car__item__pic__slider owl-carousel">
+                                            <img src="https://i.pinimg.com/564x/8f/4f/0d/8f4f0d71413085f7bbd9e99248701a01.jpg" alt="">
+                                            <img src="https://i.pinimg.com/564x/a9/05/21/a90521b0c0434c5152aad0a525ff074e.jpg" alt="">
+                                            <img src="https://i.pinimg.com/564x/8f/4f/0d/8f4f0d71413085f7bbd9e99248701a01.jpg" alt="">
+                                            <img src="https://i.pinimg.com/564x/a9/05/21/a90521b0c0434c5152aad0a525ff074e.jpg" alt="">
+                                        </div>
+                                        <div class="car__item__text">
+                                            <div class="car__item__text__inner">
+                                                <div class="label-date">2020</div>
+                                                <h5><a href="#">porsche 911</a></h5>
+                                            </div>
+                                            <div class="car__item__price">
+                                                <span style="margin-top: -20px;"  class="car-option sale">For Sale</span>
+                                                <span style="font-size: 12px;margin-left: 105px;">$987<span>/Month</span></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-4 col-sm-6 mix">
+                                    <div class="car__item">
+                                        <div class="car__item__pic__slider owl-carousel">
+                                            <img src="https://i.pinimg.com/564x/84/44/09/84440980d8fb1c82aeb1f35a75ff2400.jpg" alt="">
+                                            <img src="https://i.pinimg.com/564x/82/f8/e0/82f8e0d6a35c9cbd897a125de86b3745.jpg" alt="">
+                                            <img src="https://i.pinimg.com/564x/84/44/09/84440980d8fb1c82aeb1f35a75ff2400.jpg" alt="">
+                                            <img src="https://i.pinimg.com/564x/82/f8/e0/82f8e0d6a35c9cbd897a125de86b3745.jpg" alt="">
+                                        </div>
+                                        <div class="car__item__text">
+                                            <div class="car__item__text__inner">
+                                                <div class="label-date">2017</div>
+                                                <h5><a href="#">porsche macan</a></h5>
+
+                                             </div>
+                                             <div class="car__item__price">
+                                                <span style="margin-top: -20px;" class="car-option">For Rent</span>
+                                                <span style="font-size: 12px;margin-left: 105px;">$644<span>/Month</span></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-4 col-sm-6 mix sale">
+                                    <div class="car__item">
+                                        <div class="car__item__pic__slider owl-carousel">
+                                            <img src="https://i.pinimg.com/564x/85/e9/bf/85e9bf8f54ed685718b8cc74fc708445.jpg" alt="">
+                                            <img src="https://i.pinimg.com/564x/4d/12/84/4d12846dfc77c3d2c28535716d3d4fe6.jpg" alt="">
+                                            <img src="https://i.pinimg.com/564x/85/e9/bf/85e9bf8f54ed685718b8cc74fc708445.jpg">
+                                            <img src="https://i.pinimg.com/564x/4d/12/84/4d12846dfc77c3d2c28535716d3d4fe6.jpg">
+                                        </div>
+                                        <div class="car__item__text">
+                                            <div class="car__item__text__inner">
+                                                <div class="label-date">2019</div>
+                                                <h5><a href="#">Pink porsche<3</a></h5>
+                                            </div>
+                                            <div class="car__item__price">
+                                                <span style="margin-top: -20px;" class="car-option sale">For Sale</span>
+                                                <span style="font-size: 12px;margin-left: 105px;">$322<span>/Month</span></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-4 col-sm-6 mix">
+                                    <div class="car__item">
+                                        <div class="car__item__pic__slider owl-carousel">
+                                            <img src="https://i.pinimg.com/564x/e2/89/5a/e2895a3936cd3bbb7ebc687253977ea2.jpg" alt="">
+                                            <img src="https://i.pinimg.com/564x/b4/4b/d1/b44bd1d28e2e3ad04fa2188fa6865caf.jpg" alt="">
+                                            <img src="https://i.pinimg.com/564x/e2/89/5a/e2895a3936cd3bbb7ebc687253977ea2.jpg" alt="">
+                                            <img src="https://i.pinimg.com/564x/f1/01/8e/f1018e42265ea37470270123beb4f64d.jpg" alt="">
+                                        </div>
+                                        <div class="car__item__text">
+                                            <div class="car__item__text__inner">
+                                                <div class="label-date">2018</div>
+                                                <h5><a href="#">Porsche 911 GT3</a></h5>
+                                            </div>
+                                            <div class="car__item__price">
+                                                <span style="margin-top: -20px;" class="car-option">For Rent</span>
+                                                <span style="font-size: 12px;margin-left: 105px;">$322<span>/Month</span></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-4 col-sm-6 mix sale">
+                                    <div class="car__item">
+                                        <div class="car__item__pic__slider owl-carousel">
+                                            <img src="https://pictures.porsche.com/rtt/iris?COSY-EU-100-1711coMvsi60AAt5FwcmBEgA4qP8iBUDxPE3Cb9pNXABuN9dMGF4tl3U0%25z8rMHIspbWvanYb%255y%25oq%25vSTmjMXD4qAZeoNBPUSfUx4RmWBisGK7Zlp0KtYYF%25mVSW8uAVbsqYStq5yPew9uRCvNzxvYRGXoq1siOJUPYwLeTBsN5xsy2dEhev5HFhLHnd7pAnqZYoOaD8JiXvBChx" alt="">
+                                            <img src="https://medias.residences-immobilier.com/articles_RI/images/Photo_7265_604.jpg" alt="">
+                                            <img src="https://pictures.porsche.com/rtt/iris?COSY-EU-100-1711coMvsi60AAt5FwcmBEgA4qP8iBUDxPE3Cb9pNXABuN9dMGF4tl3U0%25z8rMHIspbWvanYb%255y%25oq%25vSTmjMXD4qAZeoNBPUSfUx4RmWBisGK7Zlp0KtYYF%25mVSW8uAVbsqYStq5yPew9uRCvNzxvYRGXoq1siOJUPYwLeTBsN5xsy2dEhev5HFhLHnd7pAnqZYoOaD8JiXvBChx" alt="">
+                                            <img src="https://medias.residences-immobilier.com/articles_RI/images/Photo_7265_604.jpg" alt="">
+                                        </div>
+                                        <div class="car__item__text">
+                                            <div class="car__item__text__inner">
+                                                <div class="label-date">2016</div>
+                                                <h5><a href="#">porsche tagra 4s</a></h5>
+                                            </div>
+                                            <div class="car__item__price">
+                                                <span style="margin-top: -20px;" class="car-option">For Rent</span>
+                                                <span style="font-size: 12px;margin-left: 105px;">$322<span>/Month</span></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-4 col-sm-6 mix">
+                                    <div class="car__item">
+                                        <div class="car__item__pic__slider owl-carousel">
+                                            <img src="https://i.pinimg.com/564x/4e/29/a3/4e29a303ad5605c7e9253b1919a9ab3c.jpg" alt="">
+                                            <img src="https://i.pinimg.com/564x/2a/29/72/2a2972c144d5be96ca623ea8e8cf0e6b.jpg" alt="">
+                                            <img src="https://i.pinimg.com/564x/4e/29/a3/4e29a303ad5605c7e9253b1919a9ab3c.jpg" alt="">
+                                            <img src="https://i.pinimg.com/564x/2a/29/72/2a2972c144d5be96ca623ea8e8cf0e6b.jpg" alt="">
+                                        </div>
+                                        <div class="car__item__text">
+                                            <div class="car__item__text__inner">
+                                                <div class="label-date">2020</div>
+                                                <h5><a href="#">Porsche 918 </a></h5>
+                                            </div>
+                                            <div class="car__item__price">
+                                                <span style="margin-top: -20px;" class="car-option sale">For Sale</span>
+                                                <span style="font-size: 12px;margin-left: 105px;">$562<span>/Month</span></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-4 col-sm-6 mix">
+                                    <div class="car__item">
+                                        <div class="car__item__pic__slider owl-carousel">
+                                            <img src="https://www.stuttcars.com/wp-content/uploads/2021/12/PORSCHE-Targa-4-GTS-5664_4-1400x933.jpeg" alt="">
+                                            <img src="https://www.ultimatecarpage.com/images/car/8167/Porsche-911-Targa-4-GTS-160094.jpg" alt="">
+                                            <img src="https://www.stuttcars.com/wp-content/uploads/2021/12/PORSCHE-Targa-4-GTS-5664_4-1400x933.jpeg" alt="">
+                                            <img src="https://www.ultimatecarpage.com/images/car/8167/Porsche-911-Targa-4-GTS-160094.jpg" alt="">
+                                        </div>
+                                        <div class="car__item__text">
+                                            <div class="car__item__text__inner">
+                                                <div class="label-date">2017</div>
+                                                <h5><a href="#">porsche 911 targa </a></h5>
+                                            </div>
+                                            <div class="car__item__price">
+                                                <span style="margin-top: -20px;"  class="car-option">For Rent</span>
+                                                <span style="font-size: 12px;margin-left: 105px;">$985<span>/Month</span></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    
+                    </section>
+                 </div>      
+                    </section>
+    
+    <!-- Car Section End -->
+
+    <footer class="footer set-bg" data-setbg="img/footer-bg.jpg">
+        <div class="container">
+            <div class="footer__contact">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6">
+                        <div class="footer__contact__title">
+                            <h2>Contact Us Now!</h2>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6">
+                        <div class="footer__contact__option">
+                            <div class="option__item"><i class="fa fa-phone"></i> (+12) 345 678 910</div>
+                            <div class="option__item email"><i class="fa fa-envelope-o"></i> Porsche@gmail.com</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-4">
+                    <div class="footer__about">
+                        <div class="footer__logo">
+                            <a href="#"><img src="https://pngimg.com/uploads/porsche_logo/porsche_logo_PNG6.png" alt=""></a>
+                        </div>
+                        <p>
+                            Any questions? Let us know in store at 625 Gloria Union, California, United Stated or call us
+                            on (+1) 96 123 8888
+                        </p>
+                        <div class="footer__social">
+                            <a href="https://www.facebook.com/porsche/" class="facebook"><i class="fa fa-facebook"></i></a>
+                            <a href="https://twitter.com/Porsche" class="twitter"><i class="fa fa-twitter"></i></a>
+                            <a href="https://www.porsche.com/usa/" class="google"><i class="fa fa-google"></i></a>
+                            <a href="https://www.instagram.com/porsche?igsh=MmNndTRxbDQ4dXE5" class="instagram"><i class="fa fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 offset-lg-1 col-md-3">
+                    <div class="footer__widget">
+                        <h5>Infomation</h5>
+                        <ul>
+                            <li><a href="#"><i class="fa fa-angle-right"></i> Purchase</a></li>
+                            <li><a href="#"><i class="fa fa-angle-right"></i> Payemnt</a></li>
+                            <li><a href="#"><i class="fa fa-angle-right"></i> Shipping</a></li>
+                            <li><a href="#"><i class="fa fa-angle-right"></i> Return</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-3">
+                    <div class="footer__widget">
+                        <h5>Infomation</h5>
+                        <ul>
+                            <li><a href="#"><i class="fa fa-angle-right"></i> Hatchback</a></li>
+                            <li><a href="#"><i class="fa fa-angle-right"></i> Sedan</a></li>
+                            <li><a href="#"><i class="fa fa-angle-right"></i> SUV</a></li>
+                            <li><a href="#"><i class="fa fa-angle-right"></i> Crossover</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+
+                </div>
+            </div>
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+        </div>
+    </footer>
+
+    <!-- Search Begin -->
+    <div class="search-model">
+        <div class="h-100 d-flex align-items-center justify-content-center">
+            <div class="search-close-switch">+</div>
+            <form class="search-model-form">
+                <input type="text" id="search-input" placeholder="Search here.....">
+            </form>
+        </div>
+    </div>
+    <!-- Search End -->
+
+     <!-- First include jQuery -->
+<script src="assets/js/jquery-3.3.1.min.js"></script>
+
+<!-- Then include other necessary scripts -->
+<script src="assets/js/jquery-migrate-3.0.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="assets/js/jquery.backstretch.min.js"></script>
+<script src="assets/js/wow.min.js"></script>
+<script src="assets/js/jquery.waypoints.min.js"></script>
+<script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="assets/js/scripts.js"></script>
+
+<!-- Then include Owl Carousel -->
+<script src="js/owl.carousel.min.js"></script>
+
+<!-- Then include other Js Plugins -->
+<script src="js/jquery.nice-select.min.js"></script>
+<script src="js/jquery-ui.min.js"></script>
+<script src="js/jquery.magnific-popup.min.js"></script>
+<script src="js/mixitup.min.js"></script>
+<script src="js/jquery.slicknav.js"></script>
+<script src="js/main.js"></script>
+</body>
+
+</html>

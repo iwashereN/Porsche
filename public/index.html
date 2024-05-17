@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="HVAC Template">
+    <meta name="keywords" content="HVAC, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Porsche</title>
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="css/elegant-icons.css" type="text/css">
+    <link rel="stylesheet" href="css/nice-select.css" type="text/css">
+    <link rel="stylesheet" href="css/magnific-popup.css" type="text/css">
+    <link rel="stylesheet" href="css/jquery-ui.min.css" type="text/css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <!--ok-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500&display=swap">
+    <link rel="stylesheet" href="assets/css/jquery.mCustomScrollbar.min.css">
+    <link rel="stylesheet" href="assets/css/animate.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/media-queries.css">
+
+    <!-- Favicon and touch icons -->
+    <link rel="shortcut icon" href="assets/ico/favicon.svg">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
+
+
+</head>
+
+<body>
+    <!--controlPanel-->
+    <!-- Wrapper -->
+    <div class="wrapper">
+
+        <!-- Sidebar -->
+        <nav class="sidebar" id = 'nav'>
+
+            <!-- close sidebar menu -->
+            <div class="dismiss">
+                <i class="fas fa-arrow-left"></i>
+            </div>
+
+            <div class="logo">
+                <h3><a href="./index.html">Bootstrap 4 Template with Sidebar Menu</a></h3>
+            </div>
+
+            <ul class="list-unstyled menu-elements">
+                <li class="active">
+                    <a href="./index.html"><i class="fas fa-home"></i> Home</a>
+                </li>
+                <li>
+                    <a href="profile.html" id="profile-link"><i class="fas fa-user-circle"></i> Profile</a>
+                </li>
+                <li>
+                    <a href="login.html"><i class="fas fa-cog"></i> Login-Signup</a>
+                </li>
+                <li>
+                    <a href="about.html"><i class="fas fa-user"></i> About us</a>
+                </li>
+                <li>
+                    <a href="contact.html"><i class="fas fa-envelope"></i> Contact us</a>
+                </li>
+            </ul>
+            <script>
+                document.addEventListener("DOMContentLoaded", function() {
+    const profileLink = document.getElementById('profile-link');
+
+    profileLink.addEventListener('click', function(event) {
+        event.preventDefault(); // Prevent default link behavior
+
+        // Add your token verification logic here
+        // Assume verifyToken function is available
+
+        // Replace 'YOUR_API_ENDPOINT' with the actual endpoint where you check the token
+        fetch('http://localhost:2000/api/token', {
+    method: 'GET'
+})
+.then(tokenResponse => {
+    if (tokenResponse.ok) {
+        return tokenResponse.json();
+    } else {
+        throw new Error('Failed to fetch token');
+    }
+})
+.then(tokenData => {
+    const token = tokenData.token;
+
+    // Use the retrieved token to make the request to the profile endpoint
+    fetch('http://localhost:2000/profile', {
+        method: 'GET',
+        headers: {
+            'Authorization': 'Bearer ' + token
+        }
+    })
+    .then(response => {
+        if (response.ok) {
+            // Token is valid, allow navigation to profile page
+            window.location.href = "profile.html";
+        } else {
+            // Token is not valid, display error message
+            alert('Unauthorized: Invalid token');
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('An error occurred while verifying the token');
+    });
+})
+.catch(error => {
+    console.error('Error:', error);
+    alert('An error occurred while fetching the token');
+});
+    });
+});
+
+            </script>
+            <div class="to-top">
+                <a class="btn btn-primary btn-customized-3" href="#" role="button">
+                    <i class="fas fa-arrow-up"></i> Top
+                </a>
+            </div>
+
+            <div class="dark-light-buttons">
+                <a class="btn btn-primary btn-customized-4 btn-customized-dark" href="#" role="button">Dark</a>
+                <a class="btn btn-primary btn-customized-4 btn-customized-light" href="#" role="button">Light</a>
+            </div>
+
+        </nav>
+    
+
+    <!-- End sidebar -->
+    <!-- Dark overlay -->
+    <div class="overlay"></div>
+
+    <!-- Content -->
+    <div class="content">
+
+        <!-- open sidebar menu -->
+        <a class="btn btn-primary btn-customized open-menu" href="#" role="button">
+            <i class="fas fa-align-left"></i> <span>Menu</span>
+        </a>
+        <!--controlPanel-->
+        <!-- Page Preloder -->
+        <div id="preloder">
+            <div class="loader"></div>
+        </div>
+
+        <!-- Offcanvas Menu Begin -->
+        <div class="offcanvas-menu-overlay"></div>
+        <div class="offcanvas-menu-wrapper">
+            <div class="offcanvas__widget">
+                <a href="#"><i class="fa fa-cart-plus"></i></a>
+                <a href="#" class="search-switch"><i class="fa fa-search"></i></a>
+                <a href="#" class="primary-btn">Add Car</a>
+            </div>
+            <div class="offcanvas__logo">
+                <a href="./index.html"><img src="img/logo.png" alt=""></a>
+            </div>
+            <div id="mobile-menu-wrap"></div>
+            <ul class="offcanvas_widget_add">
+                <li><i class="fa fa-clock-o"></i> </li>
+
+                <li><i class="fa fa-envelope"></i> heys/</li>
+
+            </ul>
+            <div class="offcanvas_phone_num">
+                <i class="fa fa-phone"></i>
+                <span>(+12) 345 678 910</span>
+            </div>
+            <div class="offcanvas__social">
+                <a href="#"><i class="fa fa-facebook"></i></a>
+                <a href="#"><i class="fa fa-twitter"></i></a>
+                <a href="#"><i class="fa fa-google"></i></a>
+                <a href="#"><i class="fa fa-instagram"></i></a>
+            </div>
+        </div>
+        <!-- Offcanvas Menu End -->
+        <!-- Header Section Begin -->
+        <header class="header" style=" margin-bottom: -10px; height: 90px;">
+            <div class="containernavbar">
+                <div class="row">
+                    <div class="col-lg-2">
+                        
+                    </div>
+                    <div class="col-lg-10">
+                        <div class="header__nav">
+                            <nav class="header__menu">
+                               
+                                <ul style="list-style-type: none;">
+                                    <li class="active"><a href="./index.html" style="color: white; text-decoration: none; font-size: 20px;">Home</a></li>
+                                    <li><a href="./about.html" style="color: white; text-decoration: none; font-size:20px;">About</a></li>
+                                    <li><a href="./contact.html" style="color: white; text-decoration: none; font-size: 20px;">Contact</a></li>
+                                </ul>
+                                
+                                
+                            </nav>
+                            <div class="header_nav_widget">
+                                <div class="header_navwidget_btn">
+                                    <a href="#"><i class="fa fa-cart-plus"></i></a>
+                                    <a href="#" class="search-switch"><i class="fa fa-search"></i></a>
+                                <!-- </div>
+                                <a href="#" class="primary-btn">Add Car</a>
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="canvas__open">
+                    <span class="fa fa-bars"></span>
+                </div>
+            
+        </div>
+        </header>
+        
+        
+        
+        <!-- Header Section End -->
+        <!-- Hero Section Begin -->
+        <section class="hero spad set-bg" data-setbg="img/car_image.jpg">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-7" >
+                        <div class="hero__text" style="position: relative; top: -230px;">
+                            <div class="hero_text_title">
+                                <span style="display: flex; align-items: center;">
+                                    <h2 style="color:white; font-family: '911porsche'; margin-right: 10px; margin-bottom: 0; font-size: 50px;">porsche</h2>
+                                    <div class="header__logo">
+                                        <a href="./index.html"><img src="http://www.autoleather.gr/a/wp-content/uploads/2015/11/porsche-logo-vector.png" alt="" style="width: 37px; height: auto;"></a>
+                                    </div>
+                                </span>
+                                <p style="color: white; margin-top: -10px; margin-bottom: 3px;">True luxury is not found in what you drive, but in how you drive it</p>
+                                <hr style="margin-top: 0; margin-bottom: 5px;"/>
+                            </div>
+                            
+                            <a href=".\car.html" class="primary-btn" style="margin-top:-100px;"><img src="img/wheel.png" alt=""> Check Our Cars</a>
+                            <a href=".\car.html" class="primary-btn more-btn" style="margin-top: -100px;">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        
+        
+        <!-- Hero Section End -->
+        <!-- Services Section Begin -->
+        <section class="services spad">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="section-title">
+                            <span style="font-size: 40px; ">Our Services</span>
+                            <h2 style="font-size: 60px;">What We Offer</h2>
+                            <div>
+                                <p>Our team of certified technicians is equipped with state-of-the-art tools and expertise to address all your automotive needs.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-3 col-md-6 col-sm-6">
+                            <div class="services__item">
+                                <img src="img/services/services-1.png" alt="">
+                                <h5>Rent a car</h5>
+                                <p>Unlock the power of performance. Rent a Porsche for an exhilarating drive.</p>
+                                <a href=".\car.html"><i class="fa fa-long-arrow-right"></i></a>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6">
+                            <div class="services__item">
+                                <img src="img/services/services-2.png" alt="">
+                                <h5>Buy a car  </h5>
+                                <p>Drive the dream. Own a Porsche.<br />a symbol of luxury</p>
+                                <a href=".\car.html"><i class="fa fa-long-arrow-right"></i></a>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6">
+                            <div class="services__item">
+                                <img src="img/services/services-3.png" alt="">
+                                <h5>Car Maintenance</h5>
+                                <p>Keep your Porsche purring with precision. Elevate maintenance to an art.</p>
+                                <a href="#"><i class="fa fa-long-arrow-right"></i></a>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6">
+                            <div class="services__item">
+                                <img src="img/services/services-4.png" alt="">
+                                <h5>Support 24/7</h5>
+                                <p>Drive with peace of mind, knowing support team is always here.</p>
+                                <a href=".\about.html"><i class="fa fa-long-arrow-right"></i></a>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </section>
+        <!-- Services Section End -->
+        <!-- Feature Section Begin -->
+        <section class="feature-section" style="background-image: url('https://wallpapercave.com/wp/wp5636895.jpg');">
+            <div class="container">
+
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <div class="feature__text">
+
+                                <div class="card card-background-transparent">
+                                    <div class="card-body">
+                                        <div class="section-title">
+                                            
+                                            <h2 style="
+                                                font-size: 40px;
+                                                color: darkred;" >What makes us special !</h2>
+
+                                            <h2 style="font-size: 30px;
+                                            color: aliceblue;">Why Porsche ?</h2>
+                                        </div>
+                                        <div class="feature_text_desc">
+                                            <p class="black-text">
+                                                Welcome to Porsche, where innovation meets passion, and every drive becomes an exhilarating journey. With precision-engineered engines, cutting-edge technology, and meticulous craftsmanship, Porsche stands as the epitome of automotive excellence.
+                                            </p>
+                                            <p class="black-text">
+                                                Our commitment to pushing the boundaries of performance has resulted in vehicles that redefine what's possible on the road. Join us in embracing the thrill of the open road and experience the true essence of driving. Discover why Porsche isn't just a car—it's a celebration of life's extraordinary moments.
+                                            </p>
+                                        </div>
+                                        <div class="feature_text_btn">
+                                            <a href="about.html" class="primary-btn about-us-btn">About Us</a>
+                                            <a href="contact.html" class="primary-btn partner-btn">Contact Us</a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-lg-4 offset-lg-4">
+                            <div class="row">
+                                <div class="col-lg-6 col-md-4 col-6">
+                                    <div class="feature__item gray-opacity">
+                                        <div class="feature__item__icon">
+                                            <img src="img/feature/feature-1.png" alt="">
+                                        </div>
+                                        <div class="card white-card">
+                                            <div class="cardbody">
+                                                <h6 class="maroon-text">Engine</h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-4 col-6">
+                                    <div class="feature__item gray-opacity">
+                                        <div class="feature__item__icon">
+                                            <img src="img/feature/feature-2.png" alt="">
+                                        </div>
+                                        <div class="card white-card">
+                                            <div class="cardbody">
+                                                <h6 class="maroon-text">Turbo</h6>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-4 col-6">
+                                    <div class="feature__item gray-opacity">
+                                        <div class="feature__item__icon">
+                                            <img src="img/feature/feature-3.png" alt="">
+                                        </div>
+                                        <div class="card white-card">
+                                            <div class="cardbody">
+                                                <h6 class="maroon-text">Cooling</h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-4 col-6">
+                                    <div class="feature__item gray-opacity">
+                                        <div class="feature__item__icon">
+                                            <img src="img/feature/feature-4.png" alt="">
+                                        </div>
+                                        <div class="card white-card">
+                                            <div class="cardbody">
+                                                <h6 class="maroon-text">Suspension</h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-4 col-6">
+                                    <div class="feature__item gray-opacity">
+                                        <div class="feature__item__icon">
+                                            <img src="img/feature/feature-5.png" alt="">
+                                        </div>
+                                        <div class="card white-card">
+                                            <div class="cardbody">
+                                                <h6 class="maroon-text">Electrical</h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-4 col-6">
+                                    <div class="feature__item gray-opacity">
+                                        <div class="feature__item__icon">
+                                            <img src="img/feature/feature-6.png" alt="">
+                                        </div>
+                                        <div class="card white-card">
+                                            <div class="cardbody">
+                                                <h6 class="maroon-text">Brakes</h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Feature Section End -->
+        <!-- Car Section Begin -->
+        <section class="car spad">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="section-title">
+                            <span>Our Car</span>
+                            <h2>Best Vehicle Offers</h2>
+                        </div>
+                        <ul class="filter__controls">
+                            <li class="active" data-filter="*">Most Researched</li>
+                            <li data-filter=".sale">Latest on sale</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row car-filter">
+                    <div class="col-lg-3 col-md-4 col-sm-6 mix">
+                        <div class="car__item">
+                            <div class="car__item__pic__slider owl-carousel">
+                                <img src="https://www.autocar.co.uk/sites/autocar.co.uk/files/images/car-reviews/first-drives/legacy/porsche-cayenne-s.jpg" alt="">
+                                <img src="https://i.pinimg.com/564x/37/16/9e/37169e46af38a5bfda73d08f5b2cf0e1.jpg" alt="">
+                                <img src="https://www.autocar.co.uk/sites/autocar.co.uk/files/images/car-reviews/first-drives/legacy/porsche-cayenne-s.jpg" alt="">
+                                <img src="https://i.pinimg.com/564x/37/16/9e/37169e46af38a5bfda73d08f5b2cf0e1.jpg" alt="">
+                            </div>
+                            <div class="car__item__text">
+                                <div class="car__item__text__inner">
+                                    <div class="label-date">2016</div>
+                                    <h5><a href="#">Porsche cayenne turbo s</a></h5>
+                                    <ul>
+                                        <li><span>35,000</span> mi</li>
+                                        <li>Auto</li>
+                                        <li><span>700</span> hp</li>
+                                    </ul>
+                                </div>
+                                <div class="car__item__price">
+                                    <span class="car-option">For Rent</span>
+                                    <h6>$218<span>/Month</span></h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6 mix sale">
+                        <div class="car__item">
+                            <div class="car__item__pic__slider owl-carousel">
+                                <img src="https://i.pinimg.com/564x/8f/4f/0d/8f4f0d71413085f7bbd9e99248701a01.jpg" alt="">
+                                <img src="https://i.pinimg.com/564x/a9/05/21/a90521b0c0434c5152aad0a525ff074e.jpg" alt="">
+                                <img src="https://i.pinimg.com/564x/8f/4f/0d/8f4f0d71413085f7bbd9e99248701a01.jpg" alt="">
+                                <img src="https://i.pinimg.com/564x/a9/05/21/a90521b0c0434c5152aad0a525ff074e.jpg" alt="">
+                            </div>
+                            <div class="car__item__text">
+                                <div class="car__item__text__inner">
+                                    <div class="label-date">2020</div>
+                                    <h5><a href="#">porsche 911</a></h5>
+                                    <ul>
+                                        <li><span>35,000</span> mi</li>
+                                        <li>Auto</li>
+                                        <li><span>700</span> hp</li>
+                                    </ul>
+                                </div>
+                                <div class="car__item__price">
+                                    <span class="car-option sale">For Sale</span>
+                                    <h6>$73,900</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6 mix">
+                        <div class="car__item">
+                            <div class="car__item__pic__slider owl-carousel">
+                                <img src="https://i.pinimg.com/564x/84/44/09/84440980d8fb1c82aeb1f35a75ff2400.jpg" alt="">
+                                <img src="https://i.pinimg.com/564x/82/f8/e0/82f8e0d6a35c9cbd897a125de86b3745.jpg" alt="">
+                                <img src="https://i.pinimg.com/564x/84/44/09/84440980d8fb1c82aeb1f35a75ff2400.jpg" alt="">
+                                <img src="https://i.pinimg.com/564x/82/f8/e0/82f8e0d6a35c9cbd897a125de86b3745.jpg" alt="">
+                            </div>
+                            <div class="car__item__text">
+                                <div class="car__item__text__inner">
+                                    <div class="label-date">2017</div>
+                                    <h5><a href="#">porsche macan</a></h5>
+                                    <ul>
+                                        <li><span>35,000</span> mi</li>
+                                        <li>Auto</li>
+                                        <li><span>700</span> hp</li>
+                                    </ul>
+                                </div>
+                                <div class="car__item__price">
+                                    <span class="car-option">For Rent</span>
+                                    <h6>$299<span>/Month</span></h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6 mix sale">
+                        <div class="car__item">
+                            <div class="car__item__pic__slider owl-carousel">
+                                <img src="https://i.pinimg.com/564x/85/e9/bf/85e9bf8f54ed685718b8cc74fc708445.jpg" alt="">
+                                <img src="https://i.pinimg.com/564x/4d/12/84/4d12846dfc77c3d2c28535716d3d4fe6.jpg" alt="">
+                                <img src="https://i.pinimg.com/564x/85/e9/bf/85e9bf8f54ed685718b8cc74fc708445.jpg">
+                                <img src="https://i.pinimg.com/564x/4d/12/84/4d12846dfc77c3d2c28535716d3d4fe6.jpg">
+                            </div>
+                            <div class="car__item__text">
+                                <div class="car__item__text__inner">
+                                    <div class="label-date">2019</div>
+                                    <h5><a href="#">Pink porsche<3</a></h5>
+                                    <ul>
+                                        <li><span>35,000</span> mi</li>
+                                        <li>Auto</li>
+                                        <li><span>700</span> hp</li>
+                                    </ul>
+                                </div>
+                                <div class="car__item__price">
+                                    <span class="car-option sale">For Sale</span>
+                                    <h6>$120,000</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6 mix">
+                        <div class="car__item">
+                            <div class="car__item__pic__slider owl-carousel">
+                                <img src="https://i.pinimg.com/564x/e2/89/5a/e2895a3936cd3bbb7ebc687253977ea2.jpg" alt="">
+                                <img src="https://i.pinimg.com/564x/b4/4b/d1/b44bd1d28e2e3ad04fa2188fa6865caf.jpg" alt="">
+                                <img src="https://i.pinimg.com/564x/e2/89/5a/e2895a3936cd3bbb7ebc687253977ea2.jpg" alt="">
+                                <img src="https://i.pinimg.com/564x/f1/01/8e/f1018e42265ea37470270123beb4f64d.jpg" alt="">
+                            </div>
+                            <div class="car__item__text">
+                                <div class="car__item__text__inner">
+                                    <div class="label-date">2018</div>
+                                    <h5><a href="#">Porsche 911 GT3</a></h5>
+                                    <ul>
+                                        <li><span>35,000</span> mi</li>
+                                        <li>Auto</li>
+                                        <li><span>700</span> hp</li>
+                                    </ul>
+                                </div>
+                                <div class="car__item__price">
+                                    <span class="car-option">For Rent</span>
+                                    <h6>$319<span>/Month</span></h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6 mix sale">
+                        <div class="car__item">
+                            <div class="car__item__pic__slider owl-carousel">
+                                <img src="https://pictures.porsche.com/rtt/iris?COSY-EU-100-1711coMvsi60AAt5FwcmBEgA4qP8iBUDxPE3Cb9pNXABuN9dMGF4tl3U0%25z8rMHIspbWvanYb%255y%25oq%25vSTmjMXD4qAZeoNBPUSfUx4RmWBisGK7Zlp0KtYYF%25mVSW8uAVbsqYStq5yPew9uRCvNzxvYRGXoq1siOJUPYwLeTBsN5xsy2dEhev5HFhLHnd7pAnqZYoOaD8JiXvBChx" alt="">
+                                <img src="https://medias.residences-immobilier.com/articles_RI/images/Photo_7265_604.jpg" alt="">
+                                <img src="https://pictures.porsche.com/rtt/iris?COSY-EU-100-1711coMvsi60AAt5FwcmBEgA4qP8iBUDxPE3Cb9pNXABuN9dMGF4tl3U0%25z8rMHIspbWvanYb%255y%25oq%25vSTmjMXD4qAZeoNBPUSfUx4RmWBisGK7Zlp0KtYYF%25mVSW8uAVbsqYStq5yPew9uRCvNzxvYRGXoq1siOJUPYwLeTBsN5xsy2dEhev5HFhLHnd7pAnqZYoOaD8JiXvBChx" alt="">
+                                <img src="https://medias.residences-immobilier.com/articles_RI/images/Photo_7265_604.jpg" alt="">
+                            </div>
+                            <div class="car__item__text">
+                                <div class="car__item__text__inner">
+                                    <div class="label-date">2016</div>
+                                    <h5><a href="#">porsche tagra 4s</a></h5>
+                                    <ul>
+                                        <li><span>35,000</span> mi</li>
+                                        <li>Auto</li>
+                                        <li><span>700</span> hp</li>
+                                    </ul>
+                                </div>
+                                <div class="car__item__price">
+                                    <span class="car-option sale">For Sale</span>
+                                    <h6>$730,900</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6 mix">
+                        <div class="car__item">
+                            <div class="car__item__pic__slider owl-carousel">
+                                <img src="https://i.pinimg.com/564x/4e/29/a3/4e29a303ad5605c7e9253b1919a9ab3c.jpg" alt="">
+                                <img src="https://i.pinimg.com/564x/2a/29/72/2a2972c144d5be96ca623ea8e8cf0e6b.jpg" alt="">
+                                <img src="https://i.pinimg.com/564x/4e/29/a3/4e29a303ad5605c7e9253b1919a9ab3c.jpg" alt="">
+                                <img src="https://i.pinimg.com/564x/2a/29/72/2a2972c144d5be96ca623ea8e8cf0e6b.jpg" alt="">
+                            </div>
+                            <div class="car__item__text">
+                                <div class="car__item__text__inner">
+                                    <div class="label-date">2020</div>
+                                    <h5><a href="#">Porsche 918 Spyder PTS </a></h5>
+                                    <ul>
+                                        <li><span>35,000</span> mi</li>
+                                        <li>Auto</li>
+                                        <li><span>700</span> hp</li>
+                                    </ul>
+                                </div>
+                                <div class="car__item__price">
+                                    <span class="car-option">For Rent</span>
+                                    <h6>$422<span>/Month</span></h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4 col-sm-6 mix">
+                        <div class="car__item">
+                            <div class="car__item__pic__slider owl-carousel">
+                                <img src="https://www.stuttcars.com/wp-content/uploads/2021/12/PORSCHE-Targa-4-GTS-5664_4-1400x933.jpeg" alt="">
+                                <img src="https://www.ultimatecarpage.com/images/car/8167/Porsche-911-Targa-4-GTS-160094.jpg" alt="">
+                                <img src="https://www.stuttcars.com/wp-content/uploads/2021/12/PORSCHE-Targa-4-GTS-5664_4-1400x933.jpeg" alt="">
+                                <img src="https://www.ultimatecarpage.com/images/car/8167/Porsche-911-Targa-4-GTS-160094.jpg" alt="">
+                            </div>
+                            <div class="car__item__text">
+                                <div class="car__item__text__inner">
+                                    <div class="label-date">2017</div>
+                                    <h5><a href="#">porsche 911 targa 4 gts</a></h5>
+                                    <ul>
+                                        <li><span>35,000</span> mi</li>
+                                        <li>Auto</li>
+                                        <li><span>700</span> hp</li>
+                                    </ul>
+                                </div>
+                                <div class="car__item__price">
+                                    <span class="car-option">For Rent</span>
+                                    <h6>$322<span>/Month</span></h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Car Section End -->
+        <!-- Chooseus Section Begin -->
+        <!-- Chooseus Section Begin -->
+        <section class="chooseus spad">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-5">
+                        <div class="chooseus__text">
+                            <div class="section-title">
+                                <h2>Why People Choose Us</h2>
+                                <p>
+                                    Owning a Porsche isn't just about driving a car; it's about embracing a rich heritage.
+                                </p>
+                            </div>
+                            <ul>
+                                <li>
+                                    <i class="fa fa-check-circle"></i> Quality and Reputation.
+                                </li>
+                                <li>
+                                    <i class="fa fa-check-circle"></i> Expertise and Experience.
+                                </li>
+                                <li>
+                                    <i class="fa fa-check-circle"></i>Rich History and Lineage.
+                                </li>
+                                <li><i class="fa fa-check-circle"></i> Innovation and Technological Advancement.</li>
+                            </ul>
+                            <a href="about.html" class="primary-btn">About Us</a>
+                        </div>
+                    </div>
+                    <div class="chooseus__video set-bg">
+                        <video id="video" width="600" height="auto" controls autoplay>
+                            <source src="img/testimonial/carvideo.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                            controls>
+                        </video>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer Section Begin -->
+        <footer class="footer set-bg" data-setbg="img/footer-bg.jpg">
+            <div class="container">
+                <div class="footer__contact">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6">
+                            <div class="footer_contact_title">
+                                <h2>Contact Us Now!</h2>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6">
+                            <div class="footer_contact_option">
+                                <div class="option__item"><i class="fa fa-phone"></i> (+12) 345 678 910</div>
+                                <div class="option__item email"><i class="fa fa-envelope-o"></i> Porsche@gmail.com</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4 col-md-4">
+                        <div class="footer__about">
+                            <div class="footer__logo">
+                                <a href="#"><img src="https://pngimg.com/uploads/porsche_logo/porsche_logo_PNG6.png" alt=""></a>
+                            </div>
+                            <p>
+                                Any questions? Let us know in store at 625 Gloria Union, California, United Stated or call us
+                                on (+1) 96 123 8888
+                            </p>
+                            <div class="footer__social">
+                                <a href="https://www.facebook.com/porsche/" class="facebook"><i class="fa fa-facebook"></i></a>
+                                <a href="https://twitter.com/Porsche" class="twitter"><i class="fa fa-twitter"></i></a>
+                                <a href="https://www.porsche.com/usa/" class="google"><i class="fa fa-google"></i></a>
+                                <a href="https://www.instagram.com/porsche?igsh=MmNndTRxbDQ4dXE5" class="instagram"><i class="fa fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 offset-lg-1 col-md-3">
+                        <div class="footer__widget">
+                            <h5>Infomation</h5>
+                            <ul>
+                                <li><a href="#"><i class="fa fa-angle-right"></i> Purchase</a></li>
+                                <li><a href="#"><i class="fa fa-angle-right"></i> Payemnt</a></li>
+                                <li><a href="#"><i class="fa fa-angle-right"></i> Shipping</a></li>
+                                <li><a href="#"><i class="fa fa-angle-right"></i> Return</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-3">
+                        <div class="footer__widget">
+                            <h5>Infomation</h5>
+                            <ul>
+                                <li><a href="#"><i class="fa fa-angle-right"></i> Hatchback</a></li>
+                                <li><a href="#"><i class="fa fa-angle-right"></i> Sedan</a></li>
+                                <li><a href="#"><i class="fa fa-angle-right"></i> SUV</a></li>
+                                <li><a href="#"><i class="fa fa-angle-right"></i> Crossover</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+
+                    </div>
+                </div>
+                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            </div>
+        </footer>
+        <!-- Footer Section End -->
+        <!-- Search Begin -->
+        <div class="search-model">
+            <div class="h-100 d-flex align-items-center justify-content-center">
+                <div class="search-close-switch">+</div>
+                <form class="search-model-form">
+                    <input type="text" id="search-input" placeholder="Search here.....">
+                </form>
+
+
+            </div>
+        </div>
+    </div>
+    </div>
+    <!-- End wrapper -->
+    <!-- Search End -->
+  <!-- First include jQuery -->
+<script src="assets/js/jquery-3.3.1.min.js"></script>
+
+<!-- Then include other necessary scripts -->
+<script src="assets/js/jquery-migrate-3.0.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="assets/js/jquery.backstretch.min.js"></script>
+<script src="assets/js/wow.min.js"></script>
+<script src="assets/js/jquery.waypoints.min.js"></script>
+<script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="assets/js/scripts.js"></script>
+
+<!-- Then include Owl Carousel -->
+<script src="js/owl.carousel.min.js"></script>
+
+<!-- Then include other Js Plugins -->
+<script src="js/jquery.nice-select.min.js"></script>
+<script src="js/jquery-ui.min.js"></script>
+<script src="js/jquery.magnific-popup.min.js"></script>
+<script src="js/mixitup.min.js"></script>
+<script src="js/jquery.slicknav.js"></script>
+<script src="js/main.js"></script>
+
+</body>
+
+</html>

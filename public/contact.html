@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="HVAC Template">
+    <meta name="keywords" content="HVAC, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Porsche</title>
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="css/elegant-icons.css" type="text/css">
+    <link rel="stylesheet" href="css/nice-select.css" type="text/css">
+    <link rel="stylesheet" href="css/magnific-popup.css" type="text/css">
+    <link rel="stylesheet" href="css/jquery-ui.min.css" type="text/css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <!--ok-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500&display=swap">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/jquery.mCustomScrollbar.min.css">
+    <link rel="stylesheet" href="assets/css/animate.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/media-queries.css">
+
+    <!-- Favicon and touch icons -->
+    <link rel="shortcut icon" href="assets/ico/favicon.svg">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
+    <style>
+        .footer_about .option_item.email a {
+            color: black !important;
+        }
+
+        .hello {
+            background-color: transparent !important;
+            color: black !important;
+        }
+
+            .hello a {
+                color: black !important;
+            }
+
+      
+    </style>
+
+</head>
+
+
+<body style="background-color: transparent; color: white;">
+    <!--controlPanel-->
+    <!-- Wrapper -->
+    <div class="wrapper">
+
+        <!-- Sidebar -->
+        <nav class="sidebar">
+
+            <!-- close sidebar menu -->
+            <div class="dismiss">
+                <i class="fas fa-arrow-left"></i>
+            </div>
+
+            <div class="logo">
+                <h3><a href="index.html">Bootstrap 4 Template with Sidebar Menu</a></h3>
+            </div>
+
+            <ul class="list-unstyled menu-elements">
+                
+                <li class="active">
+                    <a href="index.html"><i class="fas fa-home"></i> Home</a>
+                </li>
+                <li>
+                    <a href="profile.html" id="profile-link"><i class="fas fa-user-circle"></i> Profile</a>
+                </li>
+                <li>
+                    <a href="login.html"><i class="fas fa-cog"></i> Login-Signup</a>
+                </li>
+                <li>
+                    <a href="about.html"><i class="fas fa-user"></i> About us</a>
+                </li>
+                <li>
+                    <a href="contact.html"><i class="fas fa-envelope"></i> Contact us</a>
+                </li>
+            </ul>
+            <script>
+                document.addEventListener("DOMContentLoaded", function() {
+    const profileLink = document.getElementById('profile-link');
+
+    profileLink.addEventListener('click', function(event) {
+        event.preventDefault(); // Prevent default link behavior
+
+        // Add your token verification logic here
+        // Assume verifyToken function is available
+
+        // Replace 'YOUR_API_ENDPOINT' with the actual endpoint where you check the token
+        fetch('http://localhost:2000/api/token', {
+    method: 'GET'
+})
+.then(tokenResponse => {
+    if (tokenResponse.ok) {
+        return tokenResponse.json();
+    } else {
+        throw new Error('Failed to fetch token');
+    }
+})
+.then(tokenData => {
+    const token = tokenData.token;
+
+    // Use the retrieved token to make the request to the profile endpoint
+    fetch('http://localhost:2000/profile', {
+        method: 'GET',
+        headers: {
+            'Authorization': 'Bearer ' + token
+        }
+    })
+    .then(response => {
+        if (response.ok) {
+            // Token is valid, allow navigation to profile page
+            window.location.href = "profile.html";
+        } else {
+            // Token is not valid, display error message
+            alert('Unauthorized: Invalid token');
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('An error occurred while verifying the token');
+    });
+})
+.catch(error => {
+    console.error('Error:', error);
+    alert('An error occurred while fetching the token');
+});
+    });
+});
+
+            </script>
+
+            <div class="to-top">
+                <a class="btn btn-primary btn-customized-3" href="#" role="button">
+                    <i class="fas fa-arrow-up"></i> Top
+                </a>
+            </div>
+
+            <div class="dark-light-buttons">
+                <a class="btn btn-primary btn-customized-4 btn-customized-dark" href="#" role="button">Dark</a>
+                <a class="btn btn-primary btn-customized-4 btn-customized-light" href="#" role="button">Light</a>
+            </div>
+
+        </nav>
+
+        <!-- End sidebar -->
+        <!-- Dark overlay -->
+        <div class="overlay"></div>
+
+        <!-- Content -->
+        <div class="content">
+
+            <!-- open sidebar menu -->
+            <a class="btn btn-primary btn-customized open-menu" href="#" role="button">
+                <i class="fas fa-align-left"></i> <span>Menu</span>
+            </a>
+            <!--controlPanel-->
+            <!-- Page Preloder -->
+            <div id="preloder">
+                <div class="loader"></div>
+            </div>
+
+            <!-- Offcanvas Menu Begin -->
+            <div class="offcanvas-menu-overlay"></div>
+            <div class="offcanvas-menu-wrapper">
+                <div class="offcanvas__widget">
+                    <a href="#"><i class="fa fa-cart-plus"></i></a>
+                    <a href="#" class="search-switch"><i class="fa fa-search"></i></a>
+                    <a href="#" class="primary-btn">Add Car</a>
+                </div>
+                <div class="offcanvas__logo">
+                    <a href="./index.html"><img src="img/logo.png" alt=""></a>
+                </div>
+                <nav class="offcanvas__menu mobile-menu">
+                    <ul>
+                        <li class="active"><a href="./index.html">Home</a></li>
+                        <li><a href="./car.html">Cars</a></li>
+                        <li><a href="./blog.html">Blog</a></li>
+                        <li>
+                            <a href="#">Pages</a>
+                            <ul class="dropdown">
+                                <li><a href="./about.html">About Us</a></li>
+                                <li><a href="./car-details.html">Car Details</a></li>
+                                <li><a href="./blog-details.html">Blog Details</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="./about.html">About</a></li>
+                        <li><a href="./contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+                <div id="mobile-menu-wrap"></div>
+                <ul class="offcanvas_widget_add">
+                    <li><i class="fa fa-clock-o"></i> Week day: 08:00 am to 18:00 pm</li>
+                    <li><i class="fa fa-envelope-o"></i> info@porschedrive.us</li>
+                </ul>
+                <div class="offcanvas_phone_num">
+                    <i class="fa fa-phone"></i>
+                    <span>(+12) 345 678 910</span>
+                </div>
+                <div class="offcanvas__social">
+                    <a href="#"><i class="fa fa-facebook"></i></a>
+                    <a href="#"><i class="fa fa-twitter"></i></a>
+                    <a href="#"><i class="fa fa-google"></i></a>
+                    <a href="#"><i class="fa fa-instagram"></i></a>
+                </div>
+            </div>
+            <!-- Offcanvas Menu End -->
+            <!-- Header Section Begin -->
+           
+            <!-- Header Section End -->
+            <!-- Breadcrumb End -->
+            <div class="breadcrumb-option set-bg" data-setbg="img/breadcrumb-bg.jpg">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12 text-center">
+                            <div class="breadcrumb__text">
+                                <h2>Contact Us</h2>
+                                <div class="breadcrumb__links">
+                                    <a href="./index.html"><i class="fa fa-home"></i> Home</a>
+                                    <span>Contact Us</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Breadcrumb Begin -->
+            <!-- Contact Section Begin -->
+            <section class="contact spad">
+
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6">
+                            <div class="contact__text">
+                                <div class="hello">
+                                    <h2>Social Media Links</h2>
+                                    <p>
+                                        To make requests for further information, contact us via our social channels.
+                                        <br><a href="https://www.facebook.com/porsche/" target="_blank" style="color:black !important;">Visit us on Facebook</a>.
+                                        <br><a href="https://www.instagram.com/Porsche/" target="_blank" style="color:black !important;">Visit us on Instagram</a>.
+                                        <br><a href="https://twitter.com/Porsche?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor" target="_blank" style="color:black !important;">Visit us on Twitter</a>.
+                                    </p>
+
+
+
+
+                                </div>
+                                <ul>
+                                    <li><span>Phone:</span>  (888) 369-9904</li>
+                                    <li><span>Email:</span> <a href="mailto:info@porschedrive.us">info@porschedrive.us</a></li>
+
+                                    <li><span>Hours:</span> Monday – Friday | 9:00 AM – 10:00 PM ET</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6">
+                            <div class="contact__form">
+                                <form action="#">
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <input type="text" placeholder="Name">
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <input type="text" placeholder="Email">
+                                        </div>
+                                    </div>
+                                    <input type="text" placeholder="Subject">
+                                    <textarea placeholder="Your Question"></textarea>
+                                    <button type="submit" class="site-btn">Submit Now</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contact Section End -->
+            <!-- Contact Address Begin -->
+            <div class="contact-address">
+                <div class="container">
+                    <div class="contact_address_text">
+                        <div class="row">
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                <div class="contact_address_item">
+                                    <h4>Porsche Cars North America</h4>
+                                    <p>
+                                        One Porsche Drive
+                                        Atlanta, GA 30354
+                                    </p>
+                                    <span>Phone: (770) 290-3500</span>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                <div class="contact_address_item">
+                                    <h4>Porsche Financial Services</h4>
+                                    <p>
+                                        One Porsche Drive
+                                        Atlanta, GA 30354
+                                    </p>
+                                    <span>Toll Free: (800) 505-1041</span>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                <div class="contact_address_item">
+                                    <h4>Porsche Latin America, Inc.</h4>
+                                    <p>
+                                        200 S. Biscayne Blvd.
+                                        Suite 4620
+                                        Miami, Florida 33131
+                                    </p>
+                                    <span>Phone: (786) 206-7244</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Contact Address End -->
+            <!-- Footer Section Begin -->
+            <footer class="footer set-bg" data-setbg="img/footer-bg.jpg">
+                <div class="container">
+                    <div class="footer__contact">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6">
+                                <div class="footer__contact__title">
+                                    <h2>Contact Us Now!</h2>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6">
+                                <div class="footer__contact__option">
+                                    <div class="option__item"><i class="fa fa-phone"></i> (+12) 345 678 910</div>
+                                    <div class="option__item email"><i class="fa fa-envelope-o"></i> Porsche@gmail.com</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-4 col-md-4">
+                            <div class="footer__about">
+                                <div class="footer__logo">
+                                    <a href="#"><img src="https://pngimg.com/uploads/porsche_logo/porsche_logo_PNG6.png" alt=""></a>
+                                </div>
+                                <p>
+                                    Any questions? Let us know in store at 625 Gloria Union, California, United Stated or call us
+                                    on (+1) 96 123 8888
+                                </p>
+                                <div class="footer__social">
+                                    <a href="https://www.facebook.com/porsche/" class="facebook"><i class="fa fa-facebook"></i></a>
+                                    <a href="https://twitter.com/Porsche" class="twitter"><i class="fa fa-twitter"></i></a>
+                                    <a href="https://www.porsche.com/usa/" class="google"><i class="fa fa-google"></i></a>
+                                    <a href="https://www.instagram.com/porsche?igsh=MmNndTRxbDQ4dXE5" class="instagram"><i class="fa fa-instagram"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-2 offset-lg-1 col-md-3">
+                            <div class="footer__widget">
+                                <h5>Infomation</h5>
+                                <ul>
+                                    <li><a href="#"><i class="fa fa-angle-right"></i> Purchase</a></li>
+                                    <li><a href="#"><i class="fa fa-angle-right"></i> Payemnt</a></li>
+                                    <li><a href="#"><i class="fa fa-angle-right"></i> Shipping</a></li>
+                                    <li><a href="#"><i class="fa fa-angle-right"></i> Return</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-2 col-md-3">
+                            <div class="footer__widget">
+                                <h5>Infomation</h5>
+                                <ul>
+                                    <li><a href="#"><i class="fa fa-angle-right"></i> Hatchback</a></li>
+                                    <li><a href="#"><i class="fa fa-angle-right"></i> Sedan</a></li>
+                                    <li><a href="#"><i class="fa fa-angle-right"></i> SUV</a></li>
+                                    <li><a href="#"><i class="fa fa-angle-right"></i> Crossover</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+
+                        </div>
+                    </div>
+                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                </div>
+            </footer>
+            <!-- Footer Section End -->
+            <!-- Search Begin -->
+            <div class="search-model">
+                <div class="h-100 d-flex align-items-center justify-content-center">
+                    <div class="search-close-switch">+</div>
+                    <form class="search-model-form">
+                        <input type="text" id="search-input" placeholder="Search here.....">
+                    </form>
+                </div>
+            </div>
+        </div>
+        </div>
+        <!-- Search End -->
+        <script src="assets/js/jquery-3.3.1.min.js"></script>
+        <script src="assets/js/jquery-migrate-3.0.0.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <script src="assets/js/jquery.backstretch.min.js"></script>
+        <script src="assets/js/wow.min.js"></script>
+        <script src="assets/js/jquery.waypoints.min.js"></script>
+        <script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+        <script src="assets/js/scripts.js"></script>
+        <!-- Javascript -->
+        <script src="assets/js/jquery-3.3.1.min.js"></script>
+        <script src="assets/js/jquery-migrate-3.0.0.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <script src="assets/js/jquery.backstretch.min.js"></script>
+        <script src="assets/js/wow.min.js"></script>
+        <script src="assets/js/jquery.waypoints.min.js"></script>
+        <script src="assets/js/jquery.mCustomScrollbar.concat.min.js"></script>
+        <script src="assets/js/scripts.js"></script>
+
+        <!-- Other JS scripts -->
+        <script src="js/jquery.nice-select.min.js"></script>
+        <script src="js/jquery-ui.min.js"></script>
+        <script src="js/jquery.magnific-popup.min.js"></script>
+        <script src="js/mixitup.min.js"></script>
+        <script src="js/jquery.slicknav.js"></script>
+        <script src="js/owl.carousel.min.js"></script>
+        <script src="js/main.js"></script>
+
+</body>
+
+</html>
